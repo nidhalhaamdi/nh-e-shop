@@ -1,0 +1,17 @@
+So, what we did was we had to make sure that we added the new value, which was our cart items that 
+we were trying to track into our initial state of our reducer.
+Then we had to make a new action that was going to represent what we were trying to do to modify that
+new property, which is our car items array.
+Next, we define the actual action itself, which is addItem, which is a function that gets the
+item and generates this new action with the action type of ADD_ITEM that we just made, passing the item
+in as the payload, which our reducer then has to listen for with the new case, for that new action
+type that we just made, so that whenever the action comes in, we make sure that what we're doing as
+we're returning the new state of our overall cart reducer.
+So it has whatever existing hidden value is there except the cart items array is a new array.
+We have to make sure it's a new array.
+Where we spread in the existing cart items, except we append the new item that we get as a payload
+in at the end of this array.
+Finally, we have to make sure that we update our actual collection item.
+So that it pulls in to its props using the new map dispatch to props, where we make sure that when
+we define the actual ad item itself, it's a function that gets whatever we want to pass in as the payload
+in as the property.

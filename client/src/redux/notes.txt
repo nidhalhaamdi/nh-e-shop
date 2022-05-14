@@ -1,0 +1,38 @@
+A REDUCER is just a function that gets 2 properties.
+
+It gets a 'state object' which represents the last state or initial state,
+then it recieves an 'Action': that action is just an object that has a 'Type' 
+property which is String value: It's just a 'name' that tells us what specific actions.
+The second property is the 'payload'.
+
+The caveat here to remember is that every single reducer gets every single action 
+that ever gets fired, even if those actions are not related to this reducer.
+So the reason why we want a 'default: return state' is because if none of the action 
+types match inside of the switch statement about the ones that we care about, 
+then we just want to return the state.
+---------------------------------------------------------------------------------------
+A reducer (also called a reducing function) is a function that accepts an accumulation and a value and returns a new accumulation. 
+They are used to reduce a collection of values down to a single value.
+Reducers are not unique to Redux, they are a fundamental concept in functional programming. Even most non-functional languages, 
+like JavaScript, have a built-in API for reducing. In JavaScript, it's Array.prototype.reduce().
+In Redux, the accumulated value is the state object, and the values being accumulated are actions. 
+Reducers calculate a new state given the previous state and an action. They must be pure functions: functions 
+that return the exact same output for given inputs. They should also be free of side-effects. 
+This is what enables exciting features like hot reloading and time travel.
+Reducers are the most important concept in Redux.
+Do not put API calls into reducers.
+
+https://redux.js.org/understanding/thinking-in-redux/glossary#:~:text=A%20reducer%20(also%20called%20a,fundamental%20concept%20in%20functional%20programming.
+---------------------------------------------------------------------------------------
+
+*CREATING THE STORE*
+
+What we need to do is add middleware to our store so that whenever actions get fired or dispatched, 
+we can catch them and then display them.
+And the 'middleware', which is the piece in the middle between our actions firing and our root reducer,
+are pretty much just functions that receive actions in and then do something with them and then pass
+them out into the root reducer. That's all it is.
+
+This redux logger library that we installed is pretty much just that.
+And all it does is it catches the action.
+It console logs it out for us and then it moves it along.
